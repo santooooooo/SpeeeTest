@@ -18,12 +18,13 @@ class FibonacciControllerTest extends TestCase
     public function calculate()
     {
         // 算出したい番号とそれに対する正しい値
-        $number = '90';
-        $trueResult = 2880067194370816120;
+        $number = '100';
+        $trueResult = '3.5422484817926E+20';
         $response = $this->get('/api/fib?n='.$number);
 
 	$result = ['result' => $trueResult];
         $response->assertStatus(200);
+	var_dump($result);
         $response->assertExactJson($result, true);
     }
 }

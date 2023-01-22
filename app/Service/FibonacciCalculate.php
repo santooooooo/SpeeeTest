@@ -35,10 +35,6 @@ final class FibonacciCalculate
             // 配列から最後の要素を取り出す
             $result = end($this->fibonacciArray);
 
-            // PHPの整数として表示できる上限を超えた場合は、文字列としてその数を出力
-            if($result > PHP_INT_MAX) {
-                return strval($result);
-            }
             return $result;
         }
     }

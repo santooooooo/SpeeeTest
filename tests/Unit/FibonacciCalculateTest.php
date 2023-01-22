@@ -17,8 +17,8 @@ class FibonacciCalculateTest extends TestCase
     public function calculate()
     {
         // 算出したい番号とそれに対する正しい値
-        $number = 99;
-        $trueResult = "2.1892299583456E+20";
+        $number = 90;
+        $trueResult = 2880067194370816120;
 
 	// フィボナッチ数列の特定の番号の値を算出
         $fibonacciCalculate = new FibonacciCalculate();
