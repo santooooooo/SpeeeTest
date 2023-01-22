@@ -21,7 +21,7 @@ final class FibonacciController extends Controller
     public function calculate(Request $request): JsonResponse
     {
         // リクエストの値が正の整数であるかチェックする
-        $isInValid = preg_match('/[^0-9]/i', $request->n);
+        $isInValid = $request->n === NULL | preg_match('/[^0-9]/i', $request->n);
 
         if($isInValid === 0) {
             $number = intval($request->n);
