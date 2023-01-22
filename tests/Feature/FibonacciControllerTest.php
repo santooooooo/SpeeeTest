@@ -18,7 +18,7 @@ class FibonacciControllerTest extends TestCase
     public function calculate()
     {
         // 算出したい番号とそれに対する正しい値
-        $number = '100';
+        $number = '10.99';
         $trueResult = '3.5422484817926E+20';
         $response = $this->get('/api/fib?n='.$number);
 

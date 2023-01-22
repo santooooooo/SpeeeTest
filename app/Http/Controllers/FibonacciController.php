@@ -15,26 +15,23 @@ final class FibonacciController extends Controller
     /**
      * リクエストの値からフィボナッチ数列の値を算出
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function calculate(Request $request): JsonResponse
     {
-        $number = $request->n;
-
         // リクエストの値が正の整数であるかチェックする
-        $isFloat = str_contains($number, '.');
-        $isInt = settype($number, "int");
-        $isPositiveNumber = $number > 0;
+        $isInValid = preg_match('/[^0-9]/i', $request->n);
 
-        if(!$isFloat && $isInt && $isPositiveNumber) {
+        if($isInValid === 0) {
+            $number = intval($request->n);
             $fibonacciCalculate = new FibonacciCalculate();
-            $result = $fibonacciCalculate->calculate($request->n);
+            $result = $fibonacciCalculate->calculate($number);
             // 値の算出に成功した場合、HTTPステータスを200にした状態で結果を返す
             return response()->json(['result' => $result], 200);
         } else {
             // リクエストの値が正の整数以外の場合はHTTPステータスを400にした状態で結果を返す。
-            return response()->json('Bad Request', 400);
+            return response()->json(['status' => '400', 'message' => 'Bad Request'], 400);
         }
     }
 }
