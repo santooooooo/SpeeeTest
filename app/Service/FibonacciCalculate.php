@@ -16,9 +16,9 @@ final class FibonacciCalculate
      * フィボナッチ数列から指定された番号の値を算出
      *
      * @param  int $number
-     * @return int $result
+     * @return int|string $result
      */
-    public function calculate(int $number): int
+    public function calculate(int $number): int | string
     {
         // 1,2番目の場合、1を返す
         if($number === 1 | $number === 2) {
@@ -34,6 +34,11 @@ final class FibonacciCalculate
 
             // 配列から最後の要素を取り出す
             $result = end($this->fibonacciArray);
+
+            // PHPの整数として表示できる上限を超えた場合は、文字列としてその数を出力
+            if($result > PHP_INT_MAX) {
+                return strval($result);
+            }
             return $result;
         }
     }
