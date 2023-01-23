@@ -34,7 +34,7 @@ https://speee-recruit-test.herokuapp.com/api/fib?n=求めたい番号
 
 ## 構成
 - [FibonacciController.php](https://github.com/santooooooo/SpeeeTest/blob/main/app/Http/Controllers/FibonacciController.php)
-リクエスト内容のバリデーションとFibonacciCalculate.phpの実行
+クエリの内容のバリデーションとFibonacciCalculate.phpの実行
 - [FibonacciCalculate.php](https://github.com/santooooooo/SpeeeTest/blob/main/app/Service/FibonacciCalculate.php)
 フィボナッチ数の算出
 ![https://whi.s3.amazonaws.com/asset/Speee_+Backend.png](https://whi.s3.amazonaws.com/asset/Speee_+Backend.png)
